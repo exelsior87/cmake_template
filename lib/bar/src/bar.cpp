@@ -1,16 +1,16 @@
 #include "bar.h"
 
-#include <glog/logging.h>
+#include "spdlog/spdlog.h"
 
 
 bar::bar() {
-    google::InitGoogleLogging("GLOG_logtostderr=1");
+    spdlog::info("bar constructor !!!");
 }
 
 bar::~bar() {
-    LOG(INFO) << "bar destructor !!!";
+    spdlog::info("bar desturctor !!!");
 }
 
 void bar::print(void) {
-    LOG(INFO) << "bar print called !!!";
+    spdlog::info("bar print !!!");
 }

@@ -1,25 +1,12 @@
-
-# 현재 폴더의 모든 파일 및 폴더 이름 확인
+# get all files and dirs name in current directory
 file(GLOB SUBS RELATIVE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/*
 )
 
-message(STATUS "sub-item lists: ${SUBS}")
-
-set(SUB_DIRS "")
-
 foreach(SUB ${SUBS})
+    # directory check
     if (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${SUB})
-        message(STATUS "${SUB}")
         add_subdirectory(${SUB})
     endif()
 endforeach()
-
-message(STATUS "sub-directories: ${SUB_DIRS}")
-
-# add_subdirectory(${SUB_DIRS})
-
-
-# add_subdirectory(foo)
-# add_subdirectory(bar)

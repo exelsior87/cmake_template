@@ -23,13 +23,21 @@ target_compile_features(bar-static PRIVATE cxx_std_17)
 
 include(FetchContent)
 
+# FetchContent_Declare(
+#     glog
+#     GIT_REPOSITORY "https://github.com/google/glog"
+#     GIT_TAG "v0.5.0"
+# )
+
+# FetchContent_MakeAvailable(glog)
+
 FetchContent_Declare(
-    glog
-    GIT_REPOSITORY "https://github.com/google/glog"
-    GIT_TAG "v0.5.0"
+    spdlog
+    GIT_REPOSITORY "https://github.com/gabime/spdlog"
+    GIT_TAG "v1.9.2"
 )
 
-FetchContent_MakeAvailable(glog)
+FetchContent_MakeAvailable(spdlog)
 
-target_link_libraries(bar PRIVATE glog)
-target_link_libraries(bar-static PRIVATE glog)
+target_link_libraries(bar PRIVATE spdlog)
+target_link_libraries(bar-static PRIVATE spdlog)
